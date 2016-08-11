@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-GameCore
-=======
 # PS_SpecFlow
-Testing SpecFLow with Pluralsight course
 
+GameCore Solution to test BDD with SpecFlow
+
+Testing SpecFLow with Pluralsight course
