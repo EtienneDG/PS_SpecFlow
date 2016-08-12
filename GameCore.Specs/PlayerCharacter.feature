@@ -20,7 +20,7 @@ Scenario Outline: Health reduction
 
 Scenario: Taking too much damages results in player death
 	When I take 100 damage
-	Then I should be dead
+	Then I should be deadd
 	
 	
 Scenario: Elf race players get 20 additional damage res
@@ -33,4 +33,47 @@ Scenario: Elf race players get 20 additional damage res (data table)
 		And I have the following attribute
 		| attribute | value |
 		| DamageRes | 10    |
-		| Race      | "Elf" |
+		| Race      | Elf   |
+
+		
+Scenario Outline: Healer restore full health
+	Given My character class is set to <characterClass>
+	When I take <damage> damage
+		And I cast a healing spell
+	Then My health should now be <remainingHealth>
+	Examples:
+	| characterClass | damage | remainingHealth |
+	| Healer         | 10     | 100             |
+	| Healer         | 30     | 100             |
+	| Healer         | 50     | 100             |
+	| Healer         | 70     | 100             |
+	| Healer         | 90     | 100             |
+	| Warrior        | 10     | 100             |
+	| Warrior        | 30     | 80              |
+	| Warrior        | 50     | 60              |
+	| Warrior        | 70     | 40              |
+	| Warrior        | 90     | 20              |
+
+Scenario: Total magical power
+	Given I have the following magical item
+         | name   | value | power |
+         | Ring   | 200   | 100   |
+         | Amulet | 400   | 200   |
+         | Gloves | 100   | 400   |
+	Then My total magical power should be 700
+
+
+Scenario Outline: Healing scroll usage
+	Given I last slept <nbDays> days ago
+	When I take <damage> damage
+		And I use a restore health scroll
+	Then My health should now be <remainingHealth>
+	Examples:
+	| nbDays | damage | remainingHealth |
+	| 1      | 20     | 100             |
+	| 1      | 80     | 100             |
+	| 2      | 10     | 90              |
+	| 2      | 50     | 50              |
+	| 3      | 40     | 60              |
+	| 3      | 90     | 10              |
+

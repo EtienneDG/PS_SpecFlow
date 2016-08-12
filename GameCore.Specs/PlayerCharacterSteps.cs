@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using TechTalk.SpecFlow;
 using Xunit;
+using TechTalk.SpecFlow.Assist;
+using System.Collections.Generic;
 
 namespace GameCore.Specs
 {
@@ -28,7 +31,7 @@ namespace GameCore.Specs
             Assert.Equal(_player.Health, expectedHealth);
         }
 
-        [Then(@"I should be dead")]
+        [Then(@"I should be deadd")]
         public void ThenIShouldBeDead()
         {
             Assert.True(_player.IsDead);
@@ -50,15 +53,52 @@ namespace GameCore.Specs
         [Given(@"I have the following attribute")]
         public void GivenIHaveTheFollowingAttribute(Table table)
         {
-            var race = table.Rows.First(x => x["attribute"] == "Race")["value"];
-            var damageRes = table.Rows.First(x => x["attribute"] == "DamageRes")["value"];
+         //   var attributes = table.CreateInstance<PlayerAttributes>();
+            dynamic attributes = table.CreateDynamicInstance();
+            
+            _player.Race = attributes.Race;
+            _player.DamageResistance = attributes.DamageRes;
 
-            _player.Race = race;
-            _player.DamageResistance = int.Parse(damageRes);
-
+        }
+        
+        [Given(@"My character class is set to (.*)")]
+        public void GivenMyCharacterClassIsSetToHealer(CharacterClass characterClass)
+        {
+            _player.CharacterClass = characterClass;
         }
 
 
+        [When(@"I cast a healing spell")]
+        public void WhenICastAHealingSpell()
+        {
+            _player.CastHealingSpell();
+        }
+
+        [Given(@"I have the following magical item")]
+        public void GivenIHaveTheFollowingMagicalItem(Table table)
+        {
+            IEnumerable<MagicalItem> items = table.CreateSet<MagicalItem>();
+
+            _player.MagicalItems.AddRange(items);
+        }
+
+        [Then(@"My total magical power should be (.*)")]
+        public void ThenMyTotalMagicalPowerShouldBe(int totalMagicalPower)
+        {
+            Assert.Equal(totalMagicalPower, _player.MagicalPower);
+        }
+
+        [Given(@"I last slept (.* days ago)")]
+        public void GivenILastSleptDaysAgo(DateTime lastTimeSlept)
+        {
+            _player.LastSleepTime = lastTimeSlept;
+        }
+
+        [When(@"I use a restore health scroll")]
+        public void WhenIUseARestoreHealthScroll()
+        {
+            _player.ReadHealScroll();
+        }
 
     }
 }

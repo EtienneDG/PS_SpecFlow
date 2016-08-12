@@ -123,7 +123,7 @@ this.FeatureBackground();
 #line 22
  testRunner.When("I take 100 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
- testRunner.Then("I should be dead", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should be deadd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -169,9 +169,104 @@ this.FeatureBackground();
                         "10"});
             table1.AddRow(new string[] {
                         "Race",
-                        "\"Elf\""});
+                        "Elf"});
 #line 33
   testRunner.And("I have the following attribute", ((string)(null)), table1, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.TheoryAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
+        [Xunit.TraitAttribute("Description", "Healer restore full health")]
+        [Xunit.InlineDataAttribute("Healer", "10", "100", new string[0])]
+        [Xunit.InlineDataAttribute("Healer", "30", "100", new string[0])]
+        [Xunit.InlineDataAttribute("Healer", "50", "100", new string[0])]
+        [Xunit.InlineDataAttribute("Healer", "70", "100", new string[0])]
+        [Xunit.InlineDataAttribute("Healer", "90", "100", new string[0])]
+        [Xunit.InlineDataAttribute("Warrior", "10", "100", new string[0])]
+        [Xunit.InlineDataAttribute("Warrior", "30", "80", new string[0])]
+        [Xunit.InlineDataAttribute("Warrior", "50", "60", new string[0])]
+        [Xunit.InlineDataAttribute("Warrior", "70", "40", new string[0])]
+        [Xunit.InlineDataAttribute("Warrior", "90", "20", new string[0])]
+        public virtual void HealerRestoreFullHealth(string characterClass, string damage, string remainingHealth, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Healer restore full health", exampleTags);
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 40
+ testRunner.Given(string.Format("My character class is set to {0}", characterClass), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+ testRunner.When(string.Format("I take {0} damage", damage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+  testRunner.And("I cast a healing spell", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.Then(string.Format("My health should now be {0}", remainingHealth), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Total magical power")]
+        [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
+        [Xunit.TraitAttribute("Description", "Total magical power")]
+        public virtual void TotalMagicalPower()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Total magical power", ((string[])(null)));
+#line 57
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "value",
+                        "power"});
+            table2.AddRow(new string[] {
+                        "Ring",
+                        "200",
+                        "100"});
+            table2.AddRow(new string[] {
+                        "Amulet",
+                        "400",
+                        "200"});
+            table2.AddRow(new string[] {
+                        "Gloves",
+                        "100",
+                        "400"});
+#line 58
+ testRunner.Given("I have the following magical item", ((string)(null)), table2, "Given ");
+#line 63
+ testRunner.Then("My total magical power should be 700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.TheoryAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
+        [Xunit.TraitAttribute("Description", "Healing scroll usage")]
+        [Xunit.InlineDataAttribute("1", "20", "100", new string[0])]
+        [Xunit.InlineDataAttribute("1", "80", "100", new string[0])]
+        [Xunit.InlineDataAttribute("2", "10", "90", new string[0])]
+        [Xunit.InlineDataAttribute("2", "50", "50", new string[0])]
+        [Xunit.InlineDataAttribute("3", "40", "60", new string[0])]
+        [Xunit.InlineDataAttribute("3", "90", "10", new string[0])]
+        public virtual void HealingScrollUsage(string nbDays, string damage, string remainingHealth, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Healing scroll usage", exampleTags);
+#line 66
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 67
+ testRunner.Given(string.Format("I last slept {0} days ago", nbDays), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 68
+ testRunner.When(string.Format("I take {0} damage", damage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 69
+  testRunner.And("I use a restore health scroll", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+ testRunner.Then(string.Format("My health should now be {0}", remainingHealth), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
