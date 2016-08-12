@@ -77,3 +77,12 @@ Scenario Outline: Healing scroll usage
 	| 3      | 40     | 60              |
 	| 3      | 90     | 10              |
 
+
+
+Scenario: Weapons are worth money
+	Given I have the following weapon
+         | name  | value |
+         | Sword | 50    |
+         | Pick  | 40    |
+         | Knife | 10    |
+	Then My weapons should be worth 100

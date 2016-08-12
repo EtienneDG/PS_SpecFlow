@@ -100,5 +100,20 @@ namespace GameCore.Specs
             _player.ReadHealScroll();
         }
 
+
+        [Given(@"I have the following weapon")]
+        public void GivenIHaveTheFollowingWeapon(Table table)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"My weapons should be worth (.*)")]
+        public void ThenMyWeaponsShouldBeWorth(int expectedWeaponValue)
+        {
+            var totalWeaponsValue = _player.Weapons.Sum(x => x.Value);
+
+            Assert.Equal(expectedWeaponValue,totalWeaponsValue);
+        }
+
     }
 }
