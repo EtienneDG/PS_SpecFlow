@@ -131,9 +131,11 @@ this.FeatureBackground();
         [Xunit.FactAttribute(DisplayName="Elf race players get 20 additional damage res")]
         [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
         [Xunit.TraitAttribute("Description", "Elf race players get 20 additional damage res")]
+        [Xunit.TraitAttribute("Category", "elf")]
         public virtual void ElfRacePlayersGet20AdditionalDamageRes()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf race players get 20 additional damage res", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf race players get 20 additional damage res", new string[] {
+                        "elf"});
 #line 26
 this.ScenarioSetup(scenarioInfo);
 #line 6
@@ -153,9 +155,11 @@ this.FeatureBackground();
         [Xunit.FactAttribute(DisplayName="Elf race players get 20 additional damage res (data table)")]
         [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
         [Xunit.TraitAttribute("Description", "Elf race players get 20 additional damage res (data table)")]
+        [Xunit.TraitAttribute("Category", "elf")]
         public virtual void ElfRacePlayersGet20AdditionalDamageResDataTable()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf race players get 20 additional damage res (data table)", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf race players get 20 additional damage res (data table)", new string[] {
+                        "elf"});
 #line 32
 this.ScenarioSetup(scenarioInfo);
 #line 6
@@ -305,9 +309,11 @@ this.FeatureBackground();
         [Xunit.FactAttribute(DisplayName="Elf characters dont lose magical item power")]
         [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
         [Xunit.TraitAttribute("Description", "Elf characters dont lose magical item power")]
+        [Xunit.TraitAttribute("Category", "elf")]
         public virtual void ElfCharactersDontLoseMagicalItemPower()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf characters dont lose magical item power", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf characters dont lose magical item power", new string[] {
+                        "elf"});
 #line 91
 this.ScenarioSetup(scenarioInfo);
 #line 6
