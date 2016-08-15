@@ -17,8 +17,7 @@ namespace GameCore
         public CharacterClass CharacterClass { get; set; }
         public DateTime LastSleepTime { get; set; }
         public int MagicalPower => MagicalItems.Sum(x => x.Power);
-        public int WeaponPower => Weapons.Sum(x => x.Value);
-
+        public int WeaponsValue => Weapons.Sum(x => x.Value);
 
         public void Hit(int damage)
         {

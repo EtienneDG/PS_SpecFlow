@@ -302,6 +302,28 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Elf characters dont lose magical item power")]
+        [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
+        [Xunit.TraitAttribute("Description", "Elf characters dont lose magical item power")]
+        public virtual void ElfCharactersDontLoseMagicalItemPower()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf characters dont lose magical item power", ((string[])(null)));
+#line 91
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 92
+ testRunner.Given("I\'m an Elf", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 93
+  testRunner.And("I have an Amulet with a power of 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 94
+ testRunner.When("I use a magical Amulet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 95
+ testRunner.Then("the Amulet power should not be reduced", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
